@@ -18,8 +18,10 @@ async function checkFileExistence(path) {
 (async () => {
     try {
         core.notice('Check File Action called!!!');
-	checkFileExistence("README.md");
-        checkFileExistence("LICENSE");
+	var files = process.env.files;
+	for(const val of files.split(',')) {
+    	    checkFileExistence(val);
+	}
     } catch (error) {
         core.setFailed(error.message);
     }
