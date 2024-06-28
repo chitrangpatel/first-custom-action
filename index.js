@@ -19,6 +19,7 @@ async function checkFileExistence(path) {
     try {
         core.notice('Check File Action called!!!');
 	var files = process.env.files;
+	core.info(`Looking for: ${files}`);
 	for(const val of files.split(',')) {
     	    checkFileExistence(val);
 	}
